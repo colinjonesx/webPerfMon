@@ -17,8 +17,8 @@ function formatTime($time){
 }
 
 $overallStart = microtime(true);
-$start = microtime(true)*1000;
 
+$start = microtime(true);
 $tempFilename = tempnam('.', 'phpPerf');
 $tempFileHndl = fopen($tempFilename, 'w');
 $results['fileCreation'] = formatTime(microtime(true) - $start);
@@ -30,7 +30,6 @@ for($i=0; $i< $iterations;$i++){
   $result[] = exp($i * rand() * pi());
 }
 $results['mathCalcs'] = formatTime(microtime(true) - $start);
-
 $result = implode("Here Is A Little Padding to bulk up the filesize\r\n",$result);
 
 $start = microtime(true);

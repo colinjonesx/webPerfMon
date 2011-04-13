@@ -18,7 +18,7 @@ var dbhost = '127.0.0.1';
 var dbport = Connection.DEFAULT_PORT;
 
 var monSvrs = ['server1','server2','server3'];
-var delay = 6000;
+var delay = 30000;
 sys.puts("Connecting to " + dbhost + ":" + dbport);
 var db = new Db('wpm', new Server(dbhost, dbport, {}), {
   native_parser:true

@@ -5,7 +5,7 @@
  */
 $results = array(
     'server' => $_SERVER['SERVER_NAME'],
-    'serverTime' => time()
+    'serverTime' => time(true)*1000
 );
 function formatTime($time){
   return sprintf("%f",$time);

@@ -17,7 +17,7 @@ function formatTime($time){
 }
 
 $overallStart = microtime(true);
-$start = microtime(true);
+$start = microtime(true)*1000;
 
 $tempFilename = tempnam('.', 'phpPerf');
 $tempFileHndl = fopen($tempFilename, 'w');

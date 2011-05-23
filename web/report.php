@@ -9,7 +9,7 @@ if(isset($_GET['svr'])){
   $fileWrite = array();
   $fileDelete = array();
   
-  $from = (isset($_GET['duration']) ? (microtime(true) * 1000) - $_GET['duration'] : 0;
+  $from = (isset($_GET['duration'])) ? (microtime(true) * 1000) - $_GET['duration'] : 0;
   
   foreach($collection->find(array('server'=>$_GET['svr'],'serverTime'=>array('$gt'=>$from)) as $obj){
     $ts = $obj['serverTime'];

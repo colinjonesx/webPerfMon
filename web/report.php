@@ -33,6 +33,7 @@ if(isset($_GET['svr'])){
   <script type="text/javascript" src="js/flot/jquery.flot.js"></script>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.js"></script>
   <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/redmond/jquery-ui.css" >
+  <link rel="stylesheet" type="text/css" href="css/main.css" >
   <style type="text/css">
 body{font-family:Tahoma; font-size:10pt;padding:50px;}
     </style>

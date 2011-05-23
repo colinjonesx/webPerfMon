@@ -9,8 +9,9 @@ if(isset($_GET['svr'])){
   $fileWrite = array();
   $fileDelete = array();
   
+  $from = (isset($_GET['duration']) ? (microtime(true) * 1000) - $_GET['duration'] : 0;
   
-  foreach($collection->find(array('server'=>$_GET['svr'])) as $obj){
+  foreach($collection->find(array('server'=>$_GET['svr'],'serverTime'=>array('$gt'=>$from)) as $obj){
     $ts = $obj['serverTime'];
     $mathCalcs[] = array($ts, $obj['mathCalcs']);
     $fileCreate[] = array($ts, $obj['fileCreate']);
@@ -57,8 +58,9 @@ foreach ($servers['values'] as $server) {
 $(document).ready(function(){
   $('ul.serverList li').click(function(e){
     $(this).append('<img class="ajaxLoading" src="img/ajaxLoading.gif">');
-    console.log('tot',$(e.currentTarget).text());
-    $.get('report.php',{svr:$(e.currentTarget).text()},function(data, status, req){
+    //console.log('tot',$(e.currentTarget).text());
+    var duration = 7 * 24 * 3600 * 1000;
+    $.get('report.php',{duration:duration,svr:$(e.currentTarget).text()},function(data, status, req){
       $('ul.serverList img.ajaxLoading').remove();
       plotopts = {
           legend:{position:'nw'},

@@ -56,8 +56,10 @@ foreach ($servers['values'] as $server) {
 <script type="text/javascript">
 $(document).ready(function(){
   $('ul.serverList li').click(function(e){
+    $(this).append('<img class="ajaxLoading" src="img/ajaxLoading.gif">');
     console.log('tot',$(e.currentTarget).text());
     $.get('report.php',{svr:$(e.currentTarget).text()},function(data, status, req){
+      $('ul.serverList img.ajaxLoading').remove();
       plotopts = {
           legend:{position:'nw'},
           xaxis: { mode: "time" },
@@ -67,7 +69,7 @@ $(document).ready(function(){
           },
           grid: { hoverable: true, clickable: true }
           //legend:{container:'#legend'}
-        };   
+        };
 
     $.plot('#chart',data,plotopts);
     },'json');

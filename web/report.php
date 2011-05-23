@@ -11,7 +11,7 @@ if(isset($_GET['svr'])){
   
   $from = (isset($_GET['duration'])) ? (microtime(true) * 1000) - $_GET['duration'] : 0;
   
-  foreach($collection->find(array('server'=>$_GET['svr'],'serverTime'=>array('$gt'=>$from)) as $obj){
+  foreach($collection->find(array('server'=>$_GET['svr'],'serverTime'=>array('$gt'=>$from))) as $obj){
     $ts = $obj['serverTime'];
     $mathCalcs[] = array($ts, $obj['mathCalcs']);
     $fileCreate[] = array($ts, $obj['fileCreate']);
